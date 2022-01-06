@@ -24,3 +24,9 @@ However, feel free to work on any existing issue.
 ## Pull requests
 
 Please submit your pull requests on the **develop** branch. We expect a description of its content, and when applicable, a reference to the issue(s) it is resolving.
+
+
+## Running locally (Windows 10, Python 3.9)
+``` sh
+SET PYTHONPATH=$PYTHONPATH;.;src\pydcs && python ./qt_ui/main.py
+```

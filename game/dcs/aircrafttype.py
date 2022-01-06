@@ -148,6 +148,8 @@ class AircraftType(UnitType[Type[FlyingType]]):
     carrier_capable: bool
     lha_capable: bool
     always_keeps_gun: bool
+    # If true, kneeboards will be generated in metric units
+    is_metric: bool
 
     # If true, the aircraft does not use the guns as the last resort weapons, but as a
     # main weapon. It'll RTB when it doesn't have gun ammo left.
@@ -359,6 +361,12 @@ class AircraftType(UnitType[Type[FlyingType]]):
         else:
             fuel_consumption = None
 
+        is_metric_data = data.get("is_metric")
+        if is_metric_data is not None:
+            is_metric: bool = is_metric_data
+        else:
+            is_metric: bool = False
+
         try:
             introduction = data["introduced"]
             if introduction is None:
@@ -391,4 +399,5 @@ class AircraftType(UnitType[Type[FlyingType]]):
                 intra_flight_radio=radio_config.intra_flight,
                 channel_allocator=radio_config.channel_allocator,
                 channel_namer=radio_config.channel_namer,
+                is_metric=is_metric,
             )

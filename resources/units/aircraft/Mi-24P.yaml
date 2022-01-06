@@ -21,3 +21,4 @@ price: 14
 role: Attack/Transport
 variants:
   Mi-24P Hind-F: {}
+is_metric: true
